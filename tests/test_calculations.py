@@ -1,6 +1,6 @@
 from calculator.calculations import Calculations, Calculation
 import pytest
-from calculator.operations import add, subtract 
+from calculator.operations import add, subtract, multiply, divide
 
 @pytest.fixture
 def setup_calculations():
@@ -22,7 +22,6 @@ def test_find_by_operation(setup_calculations):
 
     add_operations = Calculations.find_by_operation(add)
     assert add_operations == [calc_add], "Failed to find calculations by operation type"
-
 
 def test_get_latest_with_empty_history():
     Calculations.clear_history()
