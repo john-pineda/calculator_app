@@ -1,17 +1,18 @@
 from decimal import Decimal
+from typing import Callable
 
-def add(a: Decimal, b: Decimal) -> Decimal:
-    return a + b
+class Calculation:
+    def __init__(self, a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]):
+        self.a = a
+        self.b = b
+        self.operation = operation
+    
+    @staticmethod    
+    def create(a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]):
+        return Calculation(a, b, operation)
 
-def subtract(a: Decimal, b: Decimal) -> Decimal:
-    return a - b
+    def perform(self) -> Decimal:
+        return self.operation(self.a, self.b)
 
-def multiply(a: Decimal, b: Decimal) -> Decimal:
-    return a * b
-
-def divide(a: Decimal, b: Decimal) -> Decimal:
-    if b == 0:
-        raise ValueError("Cannot divide by zero")
-    return a / b
-
-# Additional operations...
+    def __repr__(self):
+        return f"Calculation({self.a}, {self.b}, {self.operation.__name__})"
