@@ -19,7 +19,7 @@ if __name__ == "__main__":
     print("Welcome to the Interactive Calculator!")
 
     while True:
-        print("Available commands: add, subtract, multiply, divide, greet, goodbye, exit")
+        print("Available commands: add, subtract, multiply, divide, hello, goodbye, exit")
         user_input = get_user_input()
 
         if user_input.lower() == "exit":

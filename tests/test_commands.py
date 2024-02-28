@@ -49,3 +49,39 @@ def test_add_command(capsys):
     captured = capsys.readouterr()
     assert captured.out.strip() == "3 + 5 = 8"
 
+from app.commands.subtract import SubtractCommand
+from unittest.mock import patch
+import pytest
+
+from app.commands.subtract import SubtractCommand
+from unittest.mock import patch
+import pytest
+
+def test_subtract_command(capsys):
+    subtract_command = SubtractCommand()
+    subtract_command.execute(8, 4)
+
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "8 - 4 = 4"
+
+from app.commands.multiply import MultiplyCommand
+from unittest.mock import patch
+import pytest
+
+def test_multiply_command(capsys):
+    multiply_command = MultiplyCommand()
+    multiply_command.execute(3, 5)
+
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "3 * 5 = 15"
+
+from app.commands.divide import DivideCommand
+from unittest.mock import patch
+import pytest
+
+def test_divide_command(capsys):
+    divide_command = DivideCommand()
+    divide_command.execute(10, 2)
+
+    captured = capsys.readouterr()
+    assert captured.out.strip() in ["10 / 2 = 5", "10 / 2 = 5.0"]
