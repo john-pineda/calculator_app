@@ -1,0 +1,10 @@
+class MenuCommand:
+    def execute(self):
+        print("Available commands:")
+        print("- add")
+        print("- subtract")
+        print("- multiply")
+        print("- divide")
+        print("- greet")
+        print("- goodbye")
+        print("- exit")

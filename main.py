@@ -6,6 +6,7 @@ from app.commands.divide import DivideCommand
 from app.commands.hello import HelloCommand
 from app.commands.goodbye import GoodbyeCommand
 from app.commands.exit import ExitCommand
+from app.commands.menu import MenuCommand
 
 def get_user_input():
     return input(">>> ")
@@ -19,7 +20,7 @@ if __name__ == "__main__":
     print("Welcome to the Interactive Calculator!")
 
     while True:
-        print("Available commands: add, subtract, multiply, divide, hello, goodbye, exit")
+        print("Available commands: add, subtract, multiply, divide, hello, goodbye, exit, menu")
         user_input = get_user_input()
 
         if user_input.lower() == "exit":
@@ -33,6 +34,9 @@ if __name__ == "__main__":
             goodbye_command.execute()
         elif user_input.lower() in ["add", "subtract", "multiply", "divide"]:
             numbers = get_numbers_from_user()
+        elif user_input.lower() == "menu":
+            menu_command = MenuCommand()
+            menu_command.execute()
             
             if user_input.lower() == "add":
                 add_command = AddCommand()

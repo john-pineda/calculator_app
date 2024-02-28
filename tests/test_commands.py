@@ -85,3 +85,20 @@ def test_divide_command(capsys):
 
     captured = capsys.readouterr()
     assert captured.out.strip() in ["10 / 2 = 5", "10 / 2 = 5.0"]
+
+from app.commands.menu import MenuCommand
+from unittest.mock import patch
+
+def test_menu_command(capsys):
+    menu_command = MenuCommand()
+    menu_command.execute()
+
+    captured = capsys.readouterr()
+    assert "Available commands:" in captured.out
+    assert "- add" in captured.out
+    assert "- subtract" in captured.out
+    assert "- multiply" in captured.out
+    assert "- divide" in captured.out
+    assert "- greet" in captured.out
+    assert "- goodbye" in captured.out
+    assert "- exit" in captured.out
