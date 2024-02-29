@@ -1,4 +1,3 @@
-# calculator_app/main.py
 from app.commands.add import AddCommand
 from app.commands.subtract import SubtractCommand
 from app.commands.multiply import MultiplyCommand
@@ -19,7 +18,7 @@ if __name__ == "__main__":
     print("Welcome to the Interactive Calculator!")
 
     while True:
-        print("Available commands: add, subtract, multiply, divide, greet, goodbye, exit")
+        print("Available commands: add, subtract, multiply, divide, hello, goodbye, exit")
         user_input = get_user_input()
 
         if user_input.lower() == "exit":
